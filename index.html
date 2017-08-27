@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lights and Tetrahedron With Sound</title>
+  <meta name="description" content="Lights – A-Frame">
+  <link rel="icon" sizes="192x192" href="https://aframe.io/images/aframe-logo-192.png">
+ <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+</head>
+<body>
+<a-scene>
+<a-image src="logo.png" width="13" height="5" position="70 35 10"></a-image>
+<a-sound src="src: url(mike.mp3)" autoplay="true" loop="true" position="0 2 5"></a-sound>
+<a-assets>
+<a-mixin id="light" geometry="primitive: sphere; radius: 1.5" material="color: #FFF; shader: flat" light="color: #DDDDFF; distance: 120; intensity: 2; type: point">
+</a-mixin>
+<a-mixin id="torus-knot" geometry="primitive: torusKnot" material="color: red"></a-mixin>
+</a-assets>
+
+<a-entity position="0 0 80">
+<a-camera fov="60" user-height="0"></a-camera>
+</a-entity>
+<a-entity position="0 0 0">
+<a-animation attribute="rotation" to="0 0 360" repeat="indefinite" easing="linear" dur="4096">
+</a-animation>
+<a-entity mixin="light" position="30 0 0"></a-entity>
+</a-entity>
+<a-entity position="0 0 0">
+<a-animation attribute="rotation" to="360 0 0" repeat="indefinite" easing="linear" dur="4096">
+</a-animation>
+<a-entity mixin="light" position="0 0 40"></a-entity>
+<a-entity position="0 0 0">
+<a-animation attribute="rotation" to="0 360 0" repeat="indefinite" easing="linear" dur="4096">
+</a-animation>
+<a-entity mixin="light" position="0 0 50"></a-entity>
+</a-entity>
+<a-torus-knot color="#B84A39" arc="180" p="3" q="8" radius="5" radius-tubular="0.1"></a-torus-knot>
+<a-tetrahedron color="#FF926B" radius="5"></a-tetrahedron>
+
+ <a-sky color="#40c4ff"></a-sky>
+</a-scene>
+</body>
+</html>
